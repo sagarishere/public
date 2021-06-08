@@ -2,7 +2,7 @@
 
 ### Instructions
 
-Write a function that returns the concatenation of all the `string` of a slice of `string` **separated** by the separator passed in argument.
+Write a function that returns the concatenation of all the `string`s of a slice of `string`s **separated** by the separator passed in the argument `sep`.
 
 ### Expected function
 
