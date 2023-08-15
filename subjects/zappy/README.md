@@ -268,7 +268,7 @@ If the broadcast is sent from the same box as the receiving player, he will rece
 
 ### The Server
 
-The server is the main engine that will interfere between the AI and the GUI. It will exchange all data with the AI and execute these instructions. At the same time, it send the information to the GUI. It can be written in one of these languages [C, C++, Rust].
+The server is the main engine that will interfere between the AI and the GUI. It will exchange all data with the AI and execute these instructions. At the same time, it send the information to the GUI. It can be written in one of these languages [C, C++, Rust, Go].
 
 For this part, you must create a TCP server to make a connection between clients and manage the entire world. There is no need to host the server as the game will run in one machine only, a localhost will be enough for now.
 
