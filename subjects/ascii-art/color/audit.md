@@ -1,16 +1,26 @@
 #### Functional
 
-###### Has the requirement for the allowed packages been respected? (Reminder for this project: (only [standard packages](https://golang.org/pkg/)
+###### Has the requirement for the allowed packages been respected? (Reminder for this project: only [standard packages](https://golang.org/pkg/))
 
-##### Try passing as arguments `"hello world" --color=red`.
+##### Try passing as arguments `--color red "banana" `.
+
+```
+Usage: go run . [OPTION] [STRING]
+
+EX: go run . --color=<color> <letters to be colored> "something"
+```
+
+###### Does it display the same result as above?
+
+##### Try passing as arguments `--color=red "hello world"`.
 
 ###### Does it display the expected result?
 
-##### Try passing as arguments `"1 + 1 = 2" --color=green`.
+##### Try passing as arguments `--color=green "1 + 1 = 2"`.
 
 ###### Does it display the expected result?
 
-##### Try passing as arguments `"(%&) ??" --color=yellow`.
+##### Try passing as arguments `--color=yellow "(%&) ??"`.
 
 ###### Does it display the expected result?
 
@@ -22,15 +32,15 @@
 
 ###### Does it display the expected result (the corresponding letter with that color)?
 
-##### Try specifying letter to be colored(just two letter).
+##### Try specifying a set of letters to be colored (just two letters).
 
-###### Does it display the expected result (the corresponding letters with that color)?
+###### Does it display the expected result (the corresponding set of letters with that color)?
 
-##### Try passing as arguments `"HeY GuYs" --color=orange`, in order to color `GuYs`.
+##### Try passing as arguments `--color=orange GuYs "HeY GuYs"`, in order to color `GuYs`.
 
 ###### Does it display the expected result?
 
-##### Try passing as arguments `"RGB()" --color=blue`, in order to color just the B.
+##### Try passing as arguments `--color=blue B 'RGB()'`, in order to color just the `B`.
 
 ###### Does it display the expected result?
 
@@ -42,11 +52,11 @@
 
 ###### Does it display the expected result?
 
-##### Try passing as arguments a random string with special characters, and a random color in the color flag ("--color="), specifying one letter to be coloured.
+##### Try passing as arguments a random string with special characters, and a random color in the color flag ("--color="), specifying one letter to be colored.
 
 ###### Does it display the expected result?
 
-##### Try passing as arguments a random string with lower, upper case, spaces and numbers letters and a random color in the color flag ("--color="), specifying a set of letters to be coloured.
+##### Try passing as arguments a random string with lower case letters, upper case letters, spaces and numbers with a random color in the color flag ("--color="), specifying a set of letters to be colored.
 
 ###### Does it display the expected result?
 
@@ -62,13 +72,13 @@
 
 ###### +Does the project run quickly and effectively (favoring of recursive, no unnecessary data requests, etc.)?
 
-###### +Is the output of the program well structured? Does any letter seem to be out of line?
+###### +Is the output of the program well structured? Are the characters displayed correctly in line?
 
 ###### +Is there a test file for this code?
 
 ###### +Are the tests checking each possible case?
 
-###### +Does the code obey the [good practices](https://github.com/01-edu/public/blob/master/subjects/good-practices/)?
+###### +Does the code obey the [good practices](../../good-practices/README.md)?
 
 #### Social
 
@@ -78,4 +88,6 @@
 
 #### Bonus
 
-###### +Can you use for the flag "--color=" different notation? (ex: `--color=red`, `--color=#ff0000`, `--color=rgb(255, 0, 0)` or `--color=hsl(0, 100%, 50%)`)
+##### Try to use different `--color` flag notations like: `--color=red`, `--color=#ff0000`, `--color=rgb(255, 0, 0)` or `--color=hsl(0, 100%, 50%)`.
+
+###### +Is it possible to use 2 or more color flag notations?

@@ -2,14 +2,12 @@
 
 ### Instructions
 
-Create a `pick` function that takes an object and keys.
-This function create a new object that pick only the keys, in the second argument, from the object passed as argument.
-
-Create a `omit` function that takes an object and keys.
-This function create a new object that omit only the keys, in the second argument, from the object passed as argument.
+Create two functions which takes an object and a string or array of strings. They should return a new object which:
+- `pick`: contains only those keys which appear in the string or array of strings.
+- `omit`: contains only those keys which do not match the string, or do not appear in the array of strings.
 
 > Those functions are pure and must not modify the given object
 
 ### Notions
 
-- [devdocs.io/javascript/global_objects/object](https://devdocs.io/javascript/global_objects/object)
+- [object](https://devdocs.io/javascript/global_objects/object)

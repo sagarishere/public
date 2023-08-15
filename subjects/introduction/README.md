@@ -4,7 +4,7 @@
 
 #### 1- get-ready
 
-Create in your [Gitea](<https://git.((DOMAIN))>) account the repository named `((ROOT))`.
+Create in your [Gitea](<https://((DOMAIN))/git>) account the repository named `((ROOT))`.
 
 This repository will be the folder where all the exercises must be uploaded.
 
@@ -21,14 +21,14 @@ git config --global credential.helper store
 If your username was `choumi` this is the command that will need to be used:
 
 ```
-git clone https://git.((DOMAIN))/choumi/((ROOT)).git
+git clone https://((DOMAIN))/git/choumi/((ROOT)).git
 ```
 
 This command needs to be adapted with **your own username**.
 
 #### 2- set
 
-Once the repository is created, use you code editor to write your first shell script called `hello.sh`
+Once the repository is created, use your code editor to write your first shell script called `hello.sh`
 
 When executed, this script must print `Hello choumi!`, where `choumi` is your username.
 

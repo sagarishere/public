@@ -2,22 +2,17 @@
 
 ### Instructions
 
-Complete the signature and the body of the `str_len` **function** that receives a string or a string literal and returns its length without taking ownership of the value (i.e, borrowing the value).
+Create a **function** named `str_len`, you'll need to complete the function signature. Your function should accept a string or a string literal, and return its length without taking ownership of the value (i.e, borrowing the value).
 
-### Expected Function (The signature needs to be completed)
-
+### Expected functions
 ```rust
 pub fn str_len(s: ) -> usize {
 }
 ```
 
-### Notions
-
-[Primitive Type str](https://doc.rust-lang.org/std/primitive.str.html)
-
 ### Usage
 
-Here is a possible program to test your function :
+Here is a possible program to test your function:
 
 ```rust
 use borrow::*;
@@ -39,3 +34,7 @@ str_len("hello") = 5
 str_len("camelCase") = 9
 $
 ```
+
+### Notions
+
+- [Primitive Type str](https://doc.rust-lang.org/std/primitive.str.html)

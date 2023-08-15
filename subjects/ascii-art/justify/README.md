@@ -2,7 +2,7 @@
 
 ### Objectives
 
-You must follow the same [instructions](https://public.01-edu.org/subjects/ascii-art) as in the first subject but the alignment can be changed.
+You must follow the same [instructions](../README.md) as in the first subject but the alignment can be changed.
 
 ```console
 We
@@ -18,23 +18,30 @@ To change the alignment of the output it must be possible to use a **flag** `--a
 - justify
 
 - You must adapt your representation to the terminal size. If you reduce the terminal window the graphical representation should be adapted to the terminal size.
+- Only text that fits the terminal size will be tested.
+- The flag must have exactly the same format as above, any other formats must return the following usage message:
+
+```console
+Usage: go run . [OPTION] [STRING] [BANNER]
+
+Example: go run . --align=right something standard
+```
+
+If there are other `ascii-art` optional projects implemented, the program should accept other correctly formatted `[OPTION]` and/or `[BANNER]`.  
+Additionally, the program must still be able to run with a single `[STRING]` argument.
 
 ### Instructions
 
 - Your project must be written in **Go**.
-- The code must respect the [**good practices**](https://public.01-edu.org/subjects/good-practices).
-- It is recommended that the code should present a **test file**.
-
-### Allowed packages
-
-- Only the [standard go](https://golang.org/pkg/) packages are allowed
+- The code must respect the [**good practices**](../../good-practices/README.md).
+- It is recommended to have **test files** for [unit testing](https://go.dev/doc/tutorial/add-a-test).
 
 ### Usage
 
 Assume the bars in the display below are the terminal borders:
 
 ```console
-|$ go run . "hello" standard --align=center                                                                                 |
+|$ go run . --align=center "hello" standard                                                                                 |
 |                                             _                _    _                                                       |
 |                                            | |              | |  | |                                                      |
 |                                            | |__      ___   | |  | |    ___                                               |
@@ -43,7 +50,7 @@ Assume the bars in the display below are the terminal borders:
 |                                            |_| |_|   \___|  |_|  |_|   \___/                                              |
 |                                                                                                                           |
 |                                                                                                                           |
-|$ go run . "Hello There" standard --align=left                                                                             |
+|$ go run . --align=left "Hello There" standard                                                                             |
 | _    _           _    _                 _______   _                                                                       |
 || |  | |         | |  | |               |__   __| | |                                                                      |
 || |__| |   ___   | |  | |    ___           | |    | |__      ___    _ __     ___                                           |
@@ -52,7 +59,7 @@ Assume the bars in the display below are the terminal borders:
 ||_|  |_|  \___|  |_|  |_|   \___/          |_|    |_| |_|   \___|  |_|      \___|                                          |
 |                                                                                                                           |
 |                                                                                                                           |
-|$ go run . "hello" shadow --align=right                                                                                    |
+|$ go run . --align=right "hello" shadow                                                                                    |
 |                                                                                                                           |
 |                                                                                          _|                _| _|          |
 |                                                                                          _|_|_|     _|_|   _| _|   _|_|   |
@@ -61,7 +68,7 @@ Assume the bars in the display below are the terminal borders:
 |                                                                                          _|    _|   _|_|_| _| _|   _|_|   |
 |                                                                                                                           |
 |                                                                                                                           |
-|$ go run . "how are you" shadow --align=justify                                                                            |
+|$ go run . --align=justify "how are you" shadow                                                                            |
 |                                                                                                                           |
 |_|                                                                                                                         |
 |_|_|_|     _|_|   _|      _|      _|                  _|_|_| _|  _|_|   _|_|                    _|    _|   _|_|   _|    _| |
@@ -72,6 +79,10 @@ Assume the bars in the display below are the terminal borders:
 |                                                                                                  _|_|                     |
 |$                                                                                                                          |
 ```
+
+### Allowed packages
+
+- Only the [standard Go](https://golang.org/pkg/) packages are allowed.
 
 This project will help you learn about :
 

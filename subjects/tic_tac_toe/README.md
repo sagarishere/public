@@ -2,29 +2,14 @@
 
 ### Instructions
 
-You must create a `tic tac toe` checker.
+You must create some functions for a tic-tac-toe checker.
 
-Create the following functions:
+Create a function named `tic_tac_toe`, which receives a tic-tac-toe table. It should return the appropriate string: `"player O won"`, `"player X won"` or `"tie"`.
 
-- `tic_tac_toe` which receives:
-  - a table of vectors (Vec<Vec<&str>>).
-  - It should return a String `player O won` or `player X won` or `Tie`.
-- `diagonals` which will receive:
-  - a player and a table.
-  - It should return a boolean, this must return `true` if one of the diagonals are completed by the player.
-- `horizontal` which will receive:
-  - a player and a table.
-  - It should return a boolean, this must return `true` if one of the horizontal lines are completed by the player.
-- `vertical` which will receive:
-  - a player and a table.
-  - It should return a boolean, this must return `true` if one of the vertical lines are completed by the player.
 
-### Notions
+Also create the following functions, which each accept a player and a table. These functions should return `true` if the player has completed one of the diagonals, rows or columns:
 
-- [references and borrowing](https://doc.rust-lang.org/book/ch04-02-references-and-borrowing.html)
-
-### Expected Functions
-
+### Expected functions
 ```rust
 pub fn tic_tac_toe(table: Vec<Vec<&str>>) -> String {
 }
@@ -41,7 +26,7 @@ pub fn vertical(player: &str, table: &Vec<Vec<&str>>) -> bool {
 
 ### Usage
 
-Here is a program to test your function
+Here is a program to test your `tic_tac_toe`. You'll need to test the other functions yourself. But they'll probably be useful for implementing your `tic_tac_toe` checker.
 
 ```rust
 use tic_tac_toe::*;
@@ -55,7 +40,7 @@ fn main() {
             vec!["X", "#", "X"]
         ])
     );
-    // "Tie"
+
     println!(
         "{:?}",
         tic_tac_toe(vec![
@@ -64,7 +49,6 @@ fn main() {
             vec!["#", "O", "X"]
         ])
     );
-    // "player O won"
 
     let dig = vec![
             vec!["O", "O", "X"],
@@ -73,7 +57,6 @@ fn main() {
         ];
 
     println!("{:?}",tic_tac_toe(dig));
-    // "player X won"
 }
 ```
 
@@ -81,8 +64,12 @@ And its output
 
 ```console
 $ cargo run
-"Tie"
+"tie"
 "player O won"
 "player X won"
 $
 ```
+
+### Notions
+
+- [references and borrowing](https://doc.rust-lang.org/book/ch04-02-references-and-borrowing.html)

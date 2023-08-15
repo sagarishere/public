@@ -13,7 +13,7 @@ This project consists in creating a web forum that allows :
 
 In order to store the data in your forum (like users, posts, comments, etc.) you will use the database library SQLite.
 
-SQLite is a popular choice as embedded database software for local/client storage in application software such as web browsers. It enables you to create a database as well as controlling it by using queries.
+SQLite is a popular choice as an embedded database software for local/client storage in application software such as web browsers. It enables you to create a database as well as controlling it by using queries.
 
 To structure your database and to achieve better performance we highly advise you to take a look at the [entity relationship diagram](https://www.smartdraw.com/entity-relationship-diagram/) and build one based on your own database.
 
@@ -25,7 +25,7 @@ To know more about SQLite you can check the [SQLite page](https://www.sqlite.org
 
 In this segment the client must be able to `register` as a new user on the forum, by inputting their credentials. You also have to create a `login session` to access the forum and be able to add posts and comments.
 
-You should use cookies to allow each user to have only one opened session. Each of this sessions must contain an expiration date. It is up to you to decide how long the cookie stays "alive".
+You should use cookies to allow each user to have only one opened session. Each of this sessions must contain an expiration date. It is up to you to decide how long the cookie stays "alive". The use of UUID is a Bonus task.
 
 Instructions for user registration:
 
@@ -33,7 +33,7 @@ Instructions for user registration:
   - When the email is already taken return an error response.
 - Must ask for username
 - Must ask for password
-  - The password must be encrypted when stored
+  - The password must be encrypted when stored (this is a Bonus task)
 
 The forum must be able to check if the email provided is present in the database and if all credentials are correct. It will check if the password is the same with the one provided and, if the password is not the same, it will return an error response.
 
@@ -67,7 +67,24 @@ Note that the last two are only available for registered users and must refer to
 
 #### Docker
 
-For the forum project you must use Docker. You can see all about docker basics on the [ascii-art-web-dockerize](https://public.01-edu.org/subjects/ascii-art-web/dockerize/) subject.
+For the forum project you must use Docker. You can read about docker basics in the [ascii-art-web-dockerize](../ascii-art-web/dockerize/README.md) subject.
+
+### Instructions
+
+- You must use **SQLite**.
+- You must handle website errors, HTTP status.
+- You must handle all sort of technical errors.
+- The code must respect the [**good practices**](../good-practices/README.md).
+- It is recommended to have **test files** for [unit testing](https://go.dev/doc/tutorial/add-a-test).
+
+### Allowed packages
+
+- All [standard Go](https://golang.org/pkg/) packages are allowed.
+- [sqlite3](https://github.com/mattn/go-sqlite3)
+- [bcrypt](https://pkg.go.dev/golang.org/x/crypto/bcrypt)
+- [UUID](https://github.com/gofrs/uuid)
+
+> You must not use use any frontend libraries or frameworks like React, Angular, Vue etc.
 
 This project will help you learn about:
 
@@ -82,18 +99,3 @@ This project will help you learn about:
 - SQL language
   - Manipulation of databases
 - The basics of encryption
-
-### Instructions
-
-- You must use **SQLite**.
-- You must handle website errors, HTTP status.
-- You must handle all sort of technical errors.
-- The code must respect the [**good practices**](https://public.01-edu.org/subjects/good-practices/).
-- It is recommended that the code should present a **test file**.
-
-### Allowed packages
-
-- All [standard go](https://golang.org/pkg/) packages are allowed.
-- github.com/mattn/go-sqlite3
-- golang.org/x/crypto/bcrypt
-- github.com/satori/go.uuid

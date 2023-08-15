@@ -13,7 +13,7 @@ On this project you will have to focus on a few points:
 
 As you already did the first forum you can use part of the code, but not all of it. Your new forum will have five different parts:
 
-- **SQLite**, in which you will store data, just like in the [previous forum](https://public.01-edu.org/subjects/forum/#communication)
+- **SQLite**, in which you will store data, just like in the [previous forum](../forum/README.md#Communication)
 - **Golang**, in which you will handle data and Websockets (Backend)
 - **Javascript**, in which you will handle all the Frontend events and clients Websockets
 - **HTML**, in which you will organize the elements of the page
@@ -23,7 +23,7 @@ You will have only one HTML file, so every change of page you want to do, should
 
 #### Registration and Login
 
-To be able to use the new and upgraded forum users will have to register and login. This is premium stuff. The registration and login process should take in consideration the following features:
+To be able to use the new and upgraded forum users will have to register and login, otherwise they will only see the registration or login page. This is premium stuff. The registration and login process should take in consideration the following features:
 
 - Users must be able to fill a register form to register into the forum. They will have to provide at least:
   - Nickname
@@ -71,9 +71,11 @@ As it is expected, the messages should work in real time, in other words, if a u
 
 - All [standard go](https://golang.org/pkg/) packages are allowed.
 - [Gorilla](https://pkg.go.dev/github.com/gorilla/websocket) websocket
-- github.com/mattn/go-sqlite3
-- golang.org/x/crypto/bcrypt
-- github.com/satori/go.uuid
+- [sqlite3](https://github.com/mattn/go-sqlite3)
+- [bcrypt](https://pkg.go.dev/golang.org/x/crypto/bcrypt)
+- [UUID](https://github.com/gofrs/uuid)
+
+> You must not use use any frontend libraries or frameworks like React, Angular, Vue etc.
 
 This project will help you learn about:
 

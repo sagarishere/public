@@ -222,6 +222,9 @@ do
 		"$dir/.config/Code/User/settings.json" \
 		"$dir/.config/VSCodium/User/settings.json"
 	{
+	    "gopls": {
+	        "formatting.gofumpt": true
+	    },
 	    "extensions.autoCheckUpdates": false,
 	    "extensions.autoUpdate": false,
 	    "json.schemaDownload.enable": false,
@@ -256,6 +259,7 @@ sudo -iu student go get github.com/go-delve/delve/cmd/dlv
 sudo -iu student go get github.com/go-delve/delve/cmd/dlv@master
 sudo -iu student go get honnef.co/go/tools/cmd/staticcheck
 sudo -iu student go get golang.org/x/tools/gopls
+sudo -iu student go get mvdan.cc/gofumpt
 
 # Install LibreOffice
 

@@ -2,12 +2,13 @@
 
 ### Instructions
 
-Use the [`chrono crate`](https://docs.rs/chrono/0.4.19/chrono/index.html) to create a **function** called `middle_day`, which returns, wrapped in an Option, the Weekday of the middle day of the year passed as an argument.
-`chrono::Weekday` has to be refered as `wd`.
+Use the [`chrono` crate](https://docs.rs/chrono/0.4.19/chrono/index.html) to create a **function** named `middle_day`. It accepts a year, and returns the weekday of the middle day of that year, wrapped in an `Option`. `chrono::Weekday` has to be referred to as `wd`.
+
+Years with an even number of days do not have a middle day, and should return `None`.
 
 ### Expected Function
 
-#### For this exercise the signature of the function has to be found out.
+> You'll need to work out the function signature for yourself.
 
 ### Usage
 
@@ -17,8 +18,6 @@ Here is a program to test your function:
 use middle_day::*;
 
 fn main() {
-    let date = Utc.ymd(2011, 12, 2).and_hms(21, 12, 09);
-
     println!("{:?}", middle_day(1022).unwrap());
 }
 ```

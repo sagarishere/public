@@ -1,29 +1,49 @@
 #### Functional
 
-##### Run the program using `cargo run`
+##### Run the program using `cargo run`.
 
-###### Does it compile and run without any warnings?
+###### Does it compile and run without warnings?
 
-##### Left click in three different positions in the canvas
+##### Left click on the canvas to set one or more control points.
 
-###### Does the program draw a small circle surrounding the area where you clicked?
+###### Does the program allow you to mark these control points?
 
-##### Press `Return`
+###### Can you confirm that the program draws a small circle around the control points in order to identify them?
 
-###### Does the animation of the Chaikin's algorithm starts?
+##### Left click on the canvas to set three or more control points and press `Enter`.
 
-###### Does the animations the animation completes 7 steps before starting again?
+###### Does the animation of the Chaikin's algorithm start?
 
-##### Press `Escape`
+##### Press `Escape` to exit the program.
 
 ###### Does the program exit without errors?
 
-##### Run the program again and this time press `Return` without selecting any points
+##### Start the program and left click on the canvas to set just one control point and press `Enter`.
 
-###### Is the program still running?
+###### Can you confirm that only the control point is shown and nothing changes?
+
+##### Restart the program and left click on the canvas to set just two control points and press `Enter`.
+
+###### Can you confirm that only a straight line was drawn?
+
+##### Restart the program and left click on the canvas to set three or more control points and press `Enter`.
+
+###### Does the animation complete 7 steps before restarting?
+
+##### Restart the program and left click on the canvas to set three or more control points and press `Enter`. Then press `Escape` to exit the program.
+
+###### Does the program exit without errors?
+
+##### Start the program and press `Enter` without selecting any points.
+
+###### Does the program continue without errors?
+
+###### After you pressed `Enter` before selecting points, is it possible to place points without needing to kill the program?
 
 ##### Bonus
 
-###### +Are you able to clear the screen and add new control points without killing and relaunching the program?
+###### +When you pressed `Enter` without drawing any points, was a message displayed to inform you that you forgot to draw any points?
 
-###### +Are you able to drag the control points in real time and get a new curve?
+###### +Is it possible to clear the screen and add new control points without killing and relaunching the program?
+
+###### +Is it possible to drag the control points in real time and get a new curve?

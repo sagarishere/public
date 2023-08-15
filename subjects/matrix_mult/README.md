@@ -4,15 +4,12 @@
 
 Implement the methods:
 
-- `number_of_cols` which returns the number of columns of the matrix.
+- `number_of_cols`: which returns the number of columns in the matrix.
+- `number_of_rows`: which returns the number of rows in the matrix.
+- `row`: which returns the `n`th row in the matrix.
+- `col`: which returns the `n`th column in the matrix.
 
-- `number_of_rows` which returns the number of rows of the matrix.
-
-- `row(n)` which returns the `n`th row in the matrix.
-
-- `col(n)` which returns the `n`th
-
-Define the matrix multiplication by implementing the std::ops::Mul for the type matrix
+Define the matrix multiplication by implementing the `std::ops::Mul` for the type matrix
 
 ### Expected Functions
 
@@ -21,10 +18,10 @@ impl Matrix<T> {
 	pub fn number_of_cols(&self) -> usize {
 	}
 
-	pub fn rows(&self) -> usize {
+	pub fn number_of_rows(&self) -> usize {
 	}
 
-	pub fn number_of_row(&self, n: usize) -> Vec<T> {
+	pub fn row(&self, n: usize) -> Vec<T> {
 	}
 
 	pub fn col(&self, n: usize) -> Vec<T> {
@@ -40,6 +37,8 @@ impl Mul for Matrix<T> {
 Here is a program to test your function.
 
 ```rust
+use matrix_mult::*;
+
 fn main() {
 	let matrix: Matrix<u32> = Matrix(vec![vec![3, 6], vec![8, 0]]);
 	println!("{:?}", matrix.col(0));

@@ -2,11 +2,11 @@
 
 ### Objectives
 
-You must follow the same [principles](https://public.01-edu.org/subjects/real-time-forum/README.md) as the first subject.
+You must follow the same [principles](../README.md) as the first subject.
 
 For this project you must create:
 
-- A [Typing in progress](https://i.insider.com/56996788dd0895a06c8b460c?width=1100&format=jpeg&auto=webp) engine
+- A [Typing in progress](https://i.insider.com/56996788dd0895a06c8b460c?width=1100&format=jpeg&auto=webp) engine.
 
 ### Instructions
 
@@ -16,7 +16,7 @@ The typing in progress engine must work in real time! This meaning that if you s
 
 This engine must have/display:
 
-- A websocket to stablish the connection with both users
+- A websocket to establish the connection with both users
 - An animation so that the user can see that you are typing, this animation should be smooth (no interruptions/janks) and just enough to draw attention for the user to see (user friendly)
 - The name of the user that is typing
 - Whenever the user stops typing or finishes the conversation, it should not display the animation
@@ -27,9 +27,9 @@ To help with the display of the typing in progress you can take a look on the js
 
 - All [standard go](https://golang.org/pkg/) packages are allowed.
 - [Gorilla](https://pkg.go.dev/github.com/gorilla/websocket) websocket
-- github.com/mattn/go-sqlite3
-- golang.org/x/crypto/bcrypt
-- github.com/satori/go.uuid
+- [sqlite3](https://github.com/mattn/go-sqlite3)
+- [bcrypt](https://pkg.go.dev/golang.org/x/crypto/bcrypt)
+- [UUID](https://github.com/gofrs/uuid)
 
 This project will help you learn about:
 

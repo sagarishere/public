@@ -4,17 +4,13 @@
 
 ###### Does the URL contain HTTPS?
 
-###### Is the project implementing [cipher suites](https://www.iana.org/assignments/tls-parameters/tls-parameters.xml)?
+###### Is the project implementing [cipher suites](https://en.wikipedia.org/wiki/Cipher_suite)?
 
 ###### Is the Go TLS structure well configured?
 
 ###### Is the [server](https://golang.org/pkg/net/http/#Server) timeout reduced (Read, write and IdleTimeout)?
 
 ###### Does the project implement [Rate limiting](https://en.wikipedia.org/wiki/Rate_limiting) (avoiding [DoS attacks](https://en.wikipedia.org/wiki/Denial-of-service_attack))?
-
-##### Try to access the database.
-
-###### Does the database present a password for protection?
 
 ##### Try creating a user. Go to the database using the command `"sqlite3 <database-name>"` and run `"SELECT * FROM <user-table>;"` to select all users.
 
@@ -24,7 +20,7 @@
 
 ###### Does the session cookie present a UUID(Universal Unique Identifier)?
 
-###### Does the project present a way to configure the certificates information, either via .env or config files or another method?
+###### Does the project present a way to configure the certificates information, either via .env, config files or another method?
 
 ###### Are only the allowed packages being used?
 
@@ -36,11 +32,13 @@
 
 ###### +Does the project implement UUID(Universal Unique Identifier) for the user session?
 
+###### +Does the database present a password for protection?
+
 #### Basic
 
 ###### +Does the project runs quickly and effectively? (no unnecessary data requests, etc)
 
-###### +Does the code obey the [good practices](https://public.01-edu.org/subjects/good-practices/)?
+###### +Does the code obey the [good practices](../../good-practices/README.md)?
 
 ###### +Is there a test file for this code?
 

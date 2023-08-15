@@ -2,30 +2,41 @@
 
 ### Instructions
 
-You have been given the mission to create a new sense of time.
-Instead of a normal week having only 7 days, you will have 14 days.
-Your mission is to create an `addWeek` function with one parameter of `Date` type.
-So now, a week is 14 days from `Monday` to `Sunday` then `secondMonday` to `secondSunday`.
-Week number should be count from `0001-01-01`
+You will create two functions: `addWeek` and `timeTravel`.
 
-Now imagine you have a doctor appointment and you have to wait some hours.
-But you do not want to wait, so what you need to do is create a
-function `timeTravel` that allows you to change the time according to your needs, this function
-it can go backwards or forwards in time.
-You will have a function that takes a date and you will pass 3 more parameters to change
-the hour, minute and seconds.
+You have been given a mission to create a new sense of time. Normally a week has 7 days right? Well, that is about to change.
+
+Weeks will instead have **14** days.
+
+Let me explain; this new week will have 14 days, from `Monday` to `Sunday`, then `secondMonday` to `secondSunday`.
+
+Your purpose is to create a new function named `addWeek`, that takes a `Date` as an argument. Your function should return the weekday as a string, according to our new 14-day week format.
+The **epoch** of our new 14-day week is `0001-01-01`, and that was a `Monday`.
+> What is an epoch?
+
+Now imagine you have an appointment with your doctor, and you have to wait for some hours, but you do not want to wait. So you decide that you need to create a new function named `timeTravel`, that allows you to change the **time** according to your needs.
+
+Your function will take an `object` as an argument, and return a `Date`. You can see the `timeTravel` example below to understand the structure of the `object` argument.
+
+Your objective is to use the information from the `object` to modify the **time** of the `Date` before returning it.
 
 ### Example
 
 ```js
-timeTravel({ date, hour, minute, second })
+addWeek(new Date('0001-01-01')) // Output: Monday
+addWeek(new Date('0001-01-02')) // Output: Tuesday
+addWeek(new Date('0001-01-07')) // Output: Sunday
+addWeek(new Date('0001-01-08')) // Output: secondMonday
+addWeek(new Date('0001-01-09')) // Output: secondTuesday
+
+// timeTravel({ date, hour, minute, second })
 
 timeTravel({
   date: new Date('2020-05-29 23:25:22'),
   hour: 21,
   minute: 22,
   second: 22,
-})
+}).toString()
 
-// Output: Date { 2020-05-29T21:22:22.000Z }
+// Output: Fri May 29 2020 21:22:22 GMT+0100 (Western European Summer Time)
 ```

@@ -2,8 +2,7 @@
 
 ### Instructions
 
-The objective is create an api to parse a list of _todos_ that is organized in a JSON file,
-handling all possible errors in a multiple error system.
+The objective is to create an API to parse a list of _todos_ that are organized in a JSON file. You must handle all possible errors in a multiple error system.
 
 Organization of the JSON file:
 
@@ -17,44 +16,35 @@ Organization of the JSON file:
 }
 ```
 
-#### Error.rs
+#### err.rs
 
-Create a module in another file called **error.rs** which handles the boxing of errors.
-This module must implement an `enum` called `ParseErr` which will take care of the
-parsing errors. It must have the following elements:
+Create a module in a file named **err.rs** which handles the boxing of errors.
 
-- Empty
-- Malformed, which has a dynamic boxed error as element
+This module must implement an `enum` called `ParseErr` which will take care of the parsing errors. It must have the following elements:
 
-A structure called `ReadErr` which will take care of the reading errors, having just an element called `child_err` of type `Box<dyn Error>`.
+- `Empty`
+- `Malformed`: which has a dynamic boxed error as element
 
-For each data structure you will have to implement a function called `fmt` for the trait `Display` which writes
-out the message **"Failed to parse todo"** in case it is a parsing error. Otherwise, it should write the message
-**"Failed to read todo file"**.
-For the `Error` trait the following functions (methods) have to be implemented:
+A structure called `ReadErr` which will take care of the reading errors, with an element called `child_err` of type `Box<dyn Error>`.
+
+For each data structure, you will have to implement a function called `fmt` for the `Display` trait. It should write the message **"Fail to parse todo"** in the case of any parsing error. Otherwise, it should write the message **"Fail to read todo file"**.
+
+For the `Error` trait, the following functions (methods) have to be implemented:
 
 - `source` which returns an `Option` with the error:
 
-  - For the `ReadErr` it must just return the option with the error
-  - For the `ParseErr` it will return an option which can be `None` if the tasks are **empty** otherwise the error, if
-    the parsing is **malformed**.
+  - For the `ReadErr`, it must return the option with the error.
+  - For the `ParseErr`, it will return an option which is `None` if the tasks are **empty**, and the error if the parsing is **malformed**.
 
 #### lib.rs
 
-In the **lib** file you will have to implement a **function** called `get_todo` which receives a string and returns a Result
-which can be the structure `TodoList` or a boxing error. This **function** must be able to deserialize the json file.
+In the **lib** file you will have to implement a **function** called `get_todo` which receives a string and returns a `Result` which can be the structure `TodoList` or a boxing error. This **function** must be able to deserialize the json file.
+
 Basically it must parse and read the JSON file and return the `TodoList` if everything is fine, otherwise it returns the error.
-
-### Notions
-
-- [Module std::fmt](https://doc.rust-lang.org/std/fmt/)
-- [JSON](https://docs.rs/json/0.12.4/json/)
-- [Boxing errors](https://doc.rust-lang.org/stable/rust-by-example/error/multiple_error_types/boxing_errors.html)
-- [Returning Traits wirh dyn](https://doc.rust-lang.org/stable/rust-by-example/trait/dyn.html)
 
 ### Expected Functions
 
-For **error.rs**
+For **err.rs**
 
 ```rust
 use std::fmt;
@@ -99,23 +89,23 @@ impl Error for ReadErr {
 for **lib.rs**
 
 ```rust
-mod error;
-use error::{ ParseErr, ReadErr };
+mod err;
+use err::{ ParseErr, ReadErr };
 
 pub use json::{parse, stringify};
 pub use std::error::Error;
 
 #[derive(Debug, Eq, PartialEq)]
 pub struct Task {
-    id: u32,
-    description: String,
-    level: u32,
+    pub id: u32,
+    pub description: String,
+    pub level: u32,
 }
 
 #[derive(Debug, Eq, PartialEq)]
 pub struct TodoList {
-    title: String,
-    tasks: Vec<Task>,
+    pub title: String,
+    pub tasks: Vec<Task>,
 }
 
 impl TodoList {
@@ -128,13 +118,11 @@ impl TodoList {
 ### Usage
 
 Here is a program to test your function.
-Note that you can create some todo list your self to test it, but you can find the JSON files that
-are being tested [here](https://github.com/01-edu/public/blob/master/subjects/boxing_todo)
+
+You can create some _todos_ yourself, inside the boxing_todo file in order to test it. The JSON structure can be found above.
 
 ```rust
-mod lib;
-use lib::{ TodoList };
-
+use boxing_todo::TodoList;
 fn main() {
     let todos = TodoList::get_todo("todo.json");
     match todos {
@@ -143,15 +131,13 @@ fn main() {
             println!("{}{:?}", e.to_string(), e.source());
         }
     }
-
-    let todos = TodoList::get_todo("no_todo_list.json");
+    let todos = TodoList::get_todo("todo_empty.json");
     match todos {
         Ok(list) => println!("{:?}", list),
         Err(e) => {
             println!("{}{:?}", e.to_string(), e.source());
         }
     }
-
     let todos = TodoList::get_todo("malformed_object.json");
     match todos {
         Ok(list) => println!("{:?}", list),
@@ -167,7 +153,14 @@ And its output:
 ```console
 $ cargo run
 TodoList { title: "TODO LIST FOR PISCINE RUST", tasks: [Task { id: 0, description: "do this", level: 0 }, Task { id: 1, description: "do that", level: 5 }] }
-Todo List parse failed: None
-Fail to parses todo Some(Malformed(UnexpectedCharacter { ch: ',', line: 2, column: 18 }))
+Fail to parses todoNone
+Fail to parse todo Some(Malformed(UnexpectedCharacter { ch: ',', line: 2, column: 18 }))
 $
 ```
+
+### Notions
+
+- [Module std::fmt](https://doc.rust-lang.org/std/fmt/)
+- [JSON](https://docs.rs/json/0.12.4/json/)
+- [Boxing errors](https://doc.rust-lang.org/stable/rust-by-example/error/multiple_error_types/boxing_errors.html)
+- [Returning Traits with dyn](https://doc.rust-lang.org/stable/rust-by-example/trait/dyn.html)

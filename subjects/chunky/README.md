@@ -2,8 +2,8 @@
 
 ### Instructions
 
-Create the `chunk` function that returns an array of elements
-split into groups the length of the given size.
+Create a function named `chunk` which accepts an array and an integer representing a size.
 
-If array can't be split evenly,
-the final chunk will be the remaining elements.
+Your function will chunk the array into sub-arrays, and return an array with each sub-array as its elements. The length of each sub-array is denoted by the size argument.
+
+If the array cannot be split evenly, the last sub-array will contain the remaining elements.

@@ -2,53 +2,40 @@
 
 ### Installation
 
-#### Install `Scoop` _(windows)_ or `Brew` _(mac)_
+For each programs, make sure you are downloading a version that works for your system
 
-Follow the instructions here:
+#### Install Visual Studio Code
 
-- **scoop**: https://scoop.sh/ (windows)
-- **brew**: https://brew.sh/ (mac)
+- Download the [installer](https://code.visualstudio.com/download)
 
-> Linux people, you should know how to handle this
+> If you already have and love a code editor, feel free to use it,
+> but keep in mind that we will use VSCode as reference
 
-#### Install `git`, `vscode` and `nodejs`
+VSCode is a code editor, it will give you an interface to write, test and submit your code.
 
-```bash
-# windows
-scoop install git
-git --version
-scoop install nodejs
-node --version
-scoop bucket add extras
-scoop install vscode
-code --version
+#### Install Git
 
-# mac
-# git should already be installed
-git --version
-brew install node
-node --version
-brew install --cask visual-studio-code
-code --version
+- Download the [installer](https://git-scm.com/downloads)
+- While installing, Git will ask a bunch of questions, it is recommended to change those:
+	- Choosing the default editor (pick VSCode)
+	- Configuring the line ending conversions (Choose : Checkout as-is, commit Unix-style line endings)
+	- Otherwise stick with the defaults unless you know what you are doing.
+
+Git is a versioning tool, we use it to upload your solutions on the school server.
+
+#### Install Node.js
+
+- Download the [installer](https://nodejs.org/en/download/current/)
+
+Node.js will allow to execute JavaScript code outside of the browser, useful for testing your code.
+
+You can execute your JavaScript files with `node` like so:
+
+```console
+$ node hello-world.js
+Hello, world!
 ```
 
-#### Configure git and vscode
-
-```bash
-# Set your username and email
-# (the double quotes "" are important)
-git config --global user.name "Your name here"
-git config --global user.email "your_email@example.com"
-
-# Tell git to use vscode
-git config --global core.editor code
-
-# Add colors to the info, not important but fancy
-git config --global color.ui true
-```
-
-> If you are adventurous, you can also setup your SSH key
-> this will allow you to avoid typing your password everytime.
 
 ### Values
 
@@ -108,11 +95,34 @@ executed.
 ### Instructions
 
 Once you have installed and configured the necessary tools,
-create a `git` repository named `((ROOT))` with a `hello-there.js`
-JS file that is a program that displays the exact text `Hello There !`, any `Number` and a
-`Boolean`.
+create in your [Gitea](<https://((DOMAIN))/git>) account the repository named `((ROOT))` with a `hello-there.js`
+JS file that is a program that displays:
+- the exact text `Hello There !`
+- any `Number` 
+- and a `Boolean`.
+
+In order to work in your repository and put files in it, you need to clone it first. 
+
+If your username was `choumi` this is the command that will need to be used:
+
+```
+git clone https://((DOMAIN))/git/choumi/((ROOT)).git
+```
+To execute it, open a Unix shell (e.g. Git Bash on Windows), you are going to type commands in it.
+This command needs to be adapted with **your own username**.
 
 > Don't forget to commit and push the file to the servers
+
+### Optional (git setting to avoid typing the password every time)
+
+The `((ROOT))` repository will be the folder where all the exercises must be uploaded.
+
+In order to avoid writing your username and password every time you `git push` an exercise, 
+tell Git to remember your password (like a web browser would) with the below command:
+
+```
+git config --global credential.helper store
+```
 
 ### Recommendation
 
@@ -120,7 +130,6 @@ Videos designed to give **hints** are assigned to each quest. It is strongly sug
 
 ### You will learn about
 
-- Terminal
 - Code Editor
 - Git
 - JS

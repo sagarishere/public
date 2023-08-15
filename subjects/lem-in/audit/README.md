@@ -1,12 +1,12 @@
 #### Functional
 
-###### Has the requirement for the allowed packages been respected? (Reminder for this project: (only [standard packages](https://golang.org/pkg/)
+###### Has the requirement for the allowed packages been respected? (Reminder for this project: only [standard packages](https://golang.org/pkg/))
 
 ##### Try to run `go run . example00.txt`.
 
 ###### Is the program able to read the ant farm in this standard input?
 
-###### Does the program accept only the commands `##star` and `##end`?
+###### Does the program accept only the commands `##start` and `##end`?
 
 ##### Try running the program with a valid example of your choice.
 
@@ -24,7 +24,7 @@ Lx-y
 
 ###### Are the commands and the ants movements printed with the right format? One line per turn, `N` movements per turn, movements defined by `Lx-y` `x` being the ant and `y` being the room, as it shows above?
 
-##### Try running the program with [example00](https://public.01-edu.org/subjects/lem-in/examples/).
+##### Try running the program with [example00](../examples/README.md).
 
 ```
 $ go run . example00.txt
@@ -48,9 +48,9 @@ L4-1
 $
 ```
 
-###### Does it present the quickest path possible with the same number of turns as the result above?
+###### Does it present the quickest path possible with at most 6 turns?
 
-##### Try running the program with [example01](https://public.01-edu.org/subjects/lem-in/examples/).
+##### Try running the program with [example01](../examples/README.md).
 
 ```
 $ go run . example01.txt
@@ -100,9 +100,9 @@ L10-end
 $
 ```
 
-###### Does it present the quickest path possible with the same number of turns as the result above?
+###### Does it present the quickest path possible with at most 8 turns?
 
-##### Try running the program with [example02](https://public.01-edu.org/subjects/lem-in/examples/).
+##### Try running the program with [example02](../examples/README.md).
 
 ```
 $ go run . example02.txt
@@ -118,13 +118,23 @@ $ go run . example02.txt
 1-2
 3-2
 
-L1-3 L2-3 L3-3 L4-3 L5-3 L6-3 L7-3 L8-3 L9-3 L10-3 L11-3 L12-3 L13-3 L14-3 L15-3 L16-3 L17-3 L18-3 L19-3 L20-3
+L1-3 L2-1
+L2-2 L3-3 L4-1
+L2-3 L4-2 L5-3 L6-1
+L4-3 L6-2 L7-3 L8-1
+L6-3 L8-2 L9-3 L10-1
+L8-3 L10-2 L11-3 L12-1
+L10-3 L12-2 L13-3 L14-1
+L12-3 L14-2 L15-3 L16 -1
+L14-3 L16-2 L17-3 L18-1
+L16-3 L18-2 L19-3
+L18-3 L20-3
 $
 ```
 
-###### Does it present the quickest path possible with the same number of turns as the result above?
+###### Does it present the quickest path possible with at most 11 turns?
 
-##### Try running the program with [example03](https://public.01-edu.org/subjects/lem-in/examples/).
+##### Try running the program with [example03](../examples/README.md).
 
 ```
 $ go run . example03.txt
@@ -154,9 +164,9 @@ L4-5
 $
 ```
 
-###### Does it present the quickest path possible with the same number of turns as the result above?
+###### Does it present the quickest path possible with at most 6 turns?
 
-##### Try running the program with [example04](https://public.01-edu.org/subjects/lem-in/examples/).
+##### Try running the program with [example04](../examples/README.md).
 
 ```
 $ go run . example04.txt
@@ -187,9 +197,9 @@ L8-peter L9-peter
 $
 ```
 
-###### Does it present the quickest path possible with the same number of turns as the result above?
+###### Does it present the quickest path possible with at most 6 turns?
 
-##### Try running the program with [example05](https://public.01-edu.org/subjects/lem-in/examples/).
+##### Try running the program with [example05](../examples/README.md).
 
 ```
 $ go run . example05.txt
@@ -271,9 +281,9 @@ L8-end L9-end
 $
 ```
 
-###### Does it present the quickest path possible with the same number of turns as the result above?
+###### Does it present the quickest path possible with at most 8 turns?
 
-##### Try running the program with [badexample00](https://public.01-edu.org/subjects/lem-in/examples/).
+##### Try running the program with [badexample00](../examples/README.md).
 
 ```
 $ go run . badexample00.txt
@@ -283,7 +293,7 @@ $
 
 ###### Does it present the right result as above?
 
-##### Try running the program with [badexample01](https://public.01-edu.org/subjects/lem-in/examples/).
+##### Try running the program with [badexample01](../examples/README.md).
 
 ```
 $ go run . badexample01.txt
@@ -293,11 +303,11 @@ $
 
 ###### Does it present at least the result above?
 
-##### Try running the program with example06.txt and with 100 ants.
+##### Try running the program with [example06](../examples/README.md) and with 100 ants.
 
 ###### Is the real time less than 1.5 minutes?
 
-##### Try running the program with example07.txt and with 1000 ants.
+##### Try running the program with [example07](../examples/README.md) and with 1000 ants.
 
 ###### Is the real time less than 2.5 minutes?
 
@@ -305,9 +315,11 @@ $
 
 ###### Are the ants alone in each room?
 
+###### Is each tunnel only used once per turn?
+
 ##### Try running the program with a valid example of your choice.
 
-###### At the end can you confirm that all the ants present in the `##end` room?
+###### At the end can you confirm that all the ants are in the `##end` room?
 
 ##### Try to run the program with an example of your choice multiple times.
 
@@ -327,7 +339,7 @@ $
 
 ###### +Is the error output more specific? (example: `"ERROR: invalid data format, invalid number of Ants"` or `"ERROR: invalid data format, no start room found"`)
 
-###### +Is the visualizer in 3D?·4
+###### +Is the visualizer in 3D?
 
 #### Basic
 
@@ -337,7 +349,7 @@ $
 
 ###### +Are the tests checking each possible case?
 
-###### +Does the code obey the [good practices](https://public.01-edu.org/subjects/good-practices/)?
+###### +Does the code obey the [good practices](../../good-practices/README.md)?
 
 #### Social
 

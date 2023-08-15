@@ -1,8 +1,8 @@
-## my-ls-1
+## my-ls
 
 ### Objectives
 
-- my-ls-1 consists on creating your own `ls` command.
+- my-ls consists on creating your own `ls` command.
 
 - The `ls` command shows you the files and folders of the directory specified after the command. By exclusion of this directory, it shows the files and folders of the present directory.
 
@@ -17,19 +17,12 @@
   - When it comes to the `ls -l` display, it must be identical to the system command.
   - Other flags displays are up to you.
 
-This project will help you learn about :
-
-- Unix system
-- Ways to receive data.
-- Ways to output data.
-- Manipulation of strings.
-- Manipulation of structures.
-
 ### Instructions
 
 - Your project must be written in **Go**.
-- The code must respect the [**good practices**](https://public.01-edu.org/subjects/good-practices/).
-- It is recommended that the code should present a **test file**.
+- The code must respect the [**good practices**](../good-practices/README.md).
+- It is recommended to have **test files** for [unit testing](https://go.dev/doc/tutorial/add-a-test).
+- The use of the `os/exec` package is prohibited within the `my-ls` codebase.
 
 ### Allowed packages
 
@@ -55,3 +48,11 @@ This project will help you learn about :
 ### Usage
 
 You can see how the `ls` command works, by using it on your terminal.
+
+This project will help you learn about :
+
+- Unix system
+- Ways to receive data.
+- Ways to output data.
+- Manipulation of strings.
+- Manipulation of structures.

@@ -4,14 +4,9 @@
 
 The Atbash cipher is an encryption method in which each letter of a word is replaced by its mirror letter in the alphabet.
 
-Your objective is to create a **function** called `cipher` which must return a `Result` wrapped in an `Option`, this result should return either a `boolean`
-or an `Error` based on the structure `CipherError`. This structure should be the error type for the **function** `cipher`.
+Your objective is to create a **function** named `cipher` which must return a `Result` wrapped in an `Option`. The `Result` should contain either a `boolean` or an `Error` based on the `CipherError` structure. This structure should be the error type for the **function** `cipher`.
 
-This function should compare the original `String` with the ciphered `String`. It should return `true` if the cipher is correct. If the cipher is incorrect it should return the error type `CipherErr` with a `boolean` and the expected atbash cipher `String`.
-
-### Notions
-
-- [Module std::fmt](https://doc.rust-lang.org/std/fmt/index.html)
+`cipher` should compare the original `String` with the ciphered `String`. It should return `true` if the cipher is correct. If the cipher is incorrect it should return the error type `CipherError` with a `boolean` and the expected atbash cipher `String`.
 
 ### Expected Function and structure
 

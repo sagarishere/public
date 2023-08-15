@@ -5,9 +5,9 @@
 The purpose of this project is for you to calculate the following:
 
 - Average
-- Standard Deviation
-- Variance
 - Median
+- Variance
+- Standard Deviation
 
 ### Instructions
 
@@ -23,21 +23,21 @@ Your program must be able to read from a file and print the result of each stati
 ...
 ```
 
-This data represents a graph in which the values of the x axis are the number of the lines (0, 1, 2, 3, 4, 5 ...) and the values of the y axis are the actual numbers (189, 113, 121, 114, 145, 110...).
+This data represents a [statistical population](https://en.wikipedia.org/wiki/Statistical_population): each line contains one value.
 
 To run your program a command similar to this one will be used if your project is made in Go:
 
 ```sh
->$ go run your-program.go data.txt
+$> go run your-program.go data.txt
 ```
 
 After reading the file, your program must execute each of the calculations asked above and print the results in the following manner (the following numbers are only examples):
 
 ```console
 Average: 35
-Standard Deviation: 65
-Variance: 5
 Median: 4
+Variance: 5
+Standard Deviation: 65
 ```
 
 Please note that the values are rounded integers.
@@ -52,6 +52,6 @@ This project will help you learn about:
 
 - Statistics and Mathematics
   - [Average](https://en.wikipedia.org/wiki/Average)
-  - [Standard Deviation](https://en.wikipedia.org/wiki/Standard_deviation)
-  - [Variance](https://en.wikipedia.org/wiki/Variance)
   - [Median](https://en.wikipedia.org/wiki/Median)
+  - [Variance](https://en.wikipedia.org/wiki/Variance)
+  - [Standard Deviation](https://en.wikipedia.org/wiki/Standard_deviation)

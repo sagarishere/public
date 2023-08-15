@@ -1,13 +1,22 @@
 ---
-name: Feature request
-about: Suggest an idea for this project
-title: ""
-labels: ""
+name: 🪄 Feature request
+about: Suggest a feature or an enhancement for this project
+title: "[FEATURE] "
+labels: "🪄 feature"
 assignees: ""
 ---
 
 **Is your feature request related to a problem? Please describe.**
 A clear and concise description of what the problem is. Ex. I'm always frustrated when [...]
+
+**Type**
+Choose the label (🖌️ ui), (⚙️ functionality), (🗂️ documentation), or (🔐 security)
+
+**Expected benefit**
+A clear and concise description of the expected benefit of the feature, including any relevant metrics or data to support its value:
+
+**Target audience**
+Who will benefit from this feature (e.g. users, developers, administrators):
 
 **Describe the solution you'd like**
 A clear and concise description of what you want to happen.
@@ -15,11 +24,5 @@ A clear and concise description of what you want to happen.
 **Describe alternatives you've considered**
 A clear and concise description of any alternative solutions or features you've considered.
 
-**Additional context**
-Add any other context or screenshots about the feature request here.
-
-**Priority**
-Add the correct label to your request: high, normal, low
-
-**Subject**
-Add the correct labels to your request: toad, onboarding, admin, intra, design
+**Additional context & attachments**
+Add any other context, screenshots, or additional attachments, such as mockups or prototypes, to provide more context for the feature.

@@ -1,45 +1,46 @@
 #### Functional
 
-###### Does the AI not crash because of too much usage of CPU?
+##### Open the project, and remove all the files except `ai.js`.
 
-##### Modify the link so that the users are the audited `GITHUB_LOGIN`
+##### Copy the game engine ([index.html](https://((DOMAIN))/git/root/public/raw/branch/master/subjects/tron/game_students/index.html)) to the root of the student's project.
 
-##### and `/random.js`. Try three times, changing the seed each time. The best of three, wins
+##### Create a simple web server by running the following command. You will first need to `cd` to the root of the student's project.
 
-###### Did the audited AI won against random AI?
+```sh
+$ python3 -m http.server
+Serving HTTP on :: port 8000 (http://[::]:8000/)
+```
 
-##### Modify the link so that the users are the audited `GITHUB_LOGIN`
+##### Open a web browser, and go to the specified port. In the above case, that will be http://localhost:8000.
 
-##### and `/right.js`. Try three times, changing the seed each time. The best of three, wins
+##### You can find the source code for each AI opponent here. You'll need to place each `.js` file at the root of the student's project: http://localhost:8000/?ai=https://((DOMAIN))/git/root/public/raw/branch/master/subjects/tron/ai/
 
-###### Did the audited AI won against `right` AI?
+##### Battle `ai.js` versus `random.js`. It is best out of 3. Delete the seed before each go. http://localhost:8000/?ai=random.js+ai.js
 
-##### Modify the link so that the users are the audited `GITHUB_LOGIN`
+###### Did `ai.js` win `random.js` at least 2 times out of the 3 games?
 
-##### and `/snail.js`. Try three times, changing the seed each time. The best of three, wins
+##### Battle `ai.js` versus `right.js`. It is best out of 3. Delete the seed before each go. http://localhost:8000/?ai=right.js+ai.js
 
-###### Did the audited AI won against `snail` AI?
+###### Did `ai.js` win `right.js` at least 2 times out of the 3 games?
+
+##### Battle `ai.js` versus `snail.js`. It is best out of 3. Delete the seed before each go. http://localhost:8000/?ai=snail.js+ai.js
+
+###### Did `ai.js` win `snail.js` at least 2 times out of the 3 games?
 
 ###### Does the code avoid [deep nesting](https://testing.googleblog.com/2017/06/code-health-reduce-nesting-reduce.html)?
 
-##### Modify the link so that the users are the audited `GITHUB_LOGIN`
+##### Battle `ai.js` versus `hard.js`. It is best out of 3. Delete the seed before each go. http://localhost:8000/?ai=hard.js+ai.js
 
-##### and `/hard.js`. Try three times, changing the seed each time. The best of three, wins
+###### Did `ai.js` win `hard.js` at least 2 times out of the 3 games?
 
-###### Did the audited AI won against `hard` AI?
+###### At any point, did the AI player complete the game without crashing because of too much CPU usage?
 
 #### Bonus
 
-##### Modify the link so that the users are the audited `GITHUB_LOGIN`
+##### Battle `ai.js` versus `licence-to-kill.js`. It is best out of 3. Delete the seed before each go. http://localhost:8000/?ai=licence-to-kill.js+ai.js
 
-##### and `/license-to-kill.js`. Try three times, changing the seed each time. The best of three, wins
+###### +Did `ai.js` win `licence-to-kill.js` at least 2 times out of the 3 games?
 
-###### +Did the audited AI won against `license-to-kill` AI?
+##### If you have an AI, and are prepared for battle. Modify the URL to battle against your AI. Best out of 3.
 
-##### If you have an AI
-
-##### Modify the link so that the users are the audited `GITHUB_LOGIN`
-
-##### and **your AI**. Try three times, changing the seed each time. The best of three, wins
-
-###### +Did the audited AI won against your AI?
+###### +Did the audited AI win against your AI?

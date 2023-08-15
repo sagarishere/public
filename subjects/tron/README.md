@@ -2,79 +2,96 @@
 
 ### Objectives
 
-In this project you will have to create your own Tron AI snake
+Create your own Tron AI snake. You will be provided with a game engine, and your objective will be to create an AI player which will battle against other AI players to win the game.
 
-### Getting started
-
-You will need to create a public repository with the name `tron`. Next you need to create a file named `ai.js`. It must respect the instructions given
-
-### Controls
-
-- `arrows` or `scroll` to move step by step
-- `shift` will make it fast
-- you can click anywhere on the progress bar to seek into the history
+### Useful files
+- [index.html (Game Engine)](https://((DOMAIN))/git/root/public/raw/branch/master/subjects/tron/game_students/index.html)
+- [hard.js](https://((DOMAIN))/git/root/public/raw/branch/master/subjects/tron/ai/hard.js)
+- [license-to-kill.js](https://((DOMAIN))/git/root/public/raw/branch/master/subjects/tron/ai/license-to-kill.js)
+- [random.js](https://((DOMAIN))/git/root/public/raw/branch/master/subjects/tron/ai/random.js)
+- [right.js](https://((DOMAIN))/git/root/public/raw/branch/master/subjects/tron/ai/right.js)
+- [snail.js](https://((DOMAIN))/git/root/public/raw/branch/master/subjects/tron/ai/snail.js)
 
 ### Rules
+The objective is for the AI player to stay alive as long as possible. The game ends when no player can move, or both players are dead.
 
-- Your AI has to move every turn _(it can not stay still)_
-- Every time the AI moves somewhere the AI leaves a color trail.
-- the AI can only move to a blank tile.
-- the AI can not move out of the map _(100 x 100)_
-- the AI can only move to its `left`, `forward` or its `right`.
-  _(Moving `backward` is suicide as it would hit its own trail !)_
-- If too much CPU power is required to decide where to go, the AI dies.
-- If two AIs moved to the same spot, both of them die.
-- **The AI has to survive as long as it can.**
+The player with the highest score wins.
 
-### The game ends
+- AI players cannot stay still during a turn, they must make a move.
+- Every time the AI player moves, it leaves a colorful trail.
+- The AI player can only move to a blank tile, and cannot move outside of the 100 x 100 map.
+- AI players can move `left`, `right` or `forward`. Moving backwards kills the AI player, because of the colorful trail.
+- If too much CPU power is required to decide where to move, the AI player dies.
+- If two AI players move to the same spot, both of them die.
 
-- Once no players can make a move the player with the biggest score wins
+### Controls
+You can use the arrows or scroll to move step by step through the game. `shift` will make it fast. You can also click anywhere on the progress bar to seek through the history.
 
 ### How to write your AI
+- Create `ai.js` at the root of your repository.
+- Copy the contents of `random.js`, and paste it to `ai.js`.
+- Edit the `update` function which is called each turn.
 
-- Copy the code on the file [random.js](https://raw.githubusercontent.com/01-edu/public/master/subjects/tron/ai/random.js) to your file, `ai.js`
-- You may now edit the `update` function which is called each turn
+> Do not rename the `update` function. It is the function that the worker will try to run to test your AI player.
 
-> ⚠️ Do not rename the `update` function ⚠️ \
-> as it's the function that the worker will try to run to test your AI.
+### Preparing to test your AI player
+Let's say that you want to battle `ai.js` against `random.js`. You will need to run the game engine, and specify the local path or web path to both of those files.
 
-### How to test your AI
+For simplicity, we'll use a single directory to demonstrate. So place `index.html` and `random.js` in the same directory as `ai.js`.
 
-- You may use this link [tron](/public/subjects/tron/?ai=&seed=1653547275), to test your AI
-- You need to add your AI as a user in that link
-  > Example:
-  - if your git login is **Frenchris** and you want to test against **LEEDASILVA** the link becomes: [/public/subjects/tron/?ai=Frenchris@master+LEEDASILVA@master](/public/subjects/tron/?ai=Frenchris@master+LEEDASILVA@master)
-  - if you want to test against the default `/random.js` AI the link becomes: [/public/subjects/tron/?ai=Frenchris@master+/random.js](/public/subjects/tron?ai=Frenchris@master+/random.js)
-- Open the inspector of the browser used and **disable the cache**
-- let's change the update function so that your AI only goes forward.
+You'll need to create a simple web server. From the command line, `cd` into that directory, and execute the following command:
+
+```sh
+$ python3 -m http.server
+Serving HTTP on :: port 8000 (http://[::]:8000/)
+```
+
+Now open your browser at the specified port. For us, that will be where the `http.server` is running:
+```
+http://localhost:8000
+```
+
+You can modify the path to load the players using a relative path:
+```
+http://localhost:8000/?ai=random.js+ai.js
+```
+
+Each game has a `seed` which will spawn the players in different positions. When you modify the path, it will add a `seed` to the query path. You can change the `seed` to spawn the players elsewhere, or remove it for a random one to be generated.
+```
+http://localhost:8000/?ai=random.js+ai.js&seed=207734936
+```
+
+You can also specify a web path to some `.js` file like so:
+```
+http://localhost:8000/?ai=https://example.com/example.js+ai.js
+```
+
+Open the inspector of the browser and **disable the cache**.
+
+### Getting started with improving your AI player
+Let's change the `update` function so that your AI only goes forward.
 
 Replace this line just before the `return` of the update function:
 
 ```js
-const available = coordsInBound.filter(isFree)
+const available = coordsInBound.filter(isFree);
 
 // And I return a random available coord
-return pickRandom(available)
+return pickRandom(available);
 ```
 
 ...with this line:
 
 ```js
 // always return the first free coordinates
-return coordsInBound.filter(isFree)[0]
+return coordsInBound.filter(isFree)[0];
 ```
 
-- save the file, push the changes and re-run the game in the browser.
-  If the cache was correctly disabled,
-  you have changed your AI behaviour from a random pick of available moves
-  to only going forward.
+Save the file, and re-run the game. If the cache was correctly disabled, you will have changed the behavior of your AI player from random movements, to only making forward moves.
 
-- To understand better the way of controlling your AI,
-  read the comments inside the AI file and do a lot of testing.
+To better understand controlling your AI player, read the comments inside `ai.js`, and do a lot of testing.
 
-- When peer-corrected, you AI will be competing against other AIs.
-  Be aware that there will be the possibility for the peer-correcter
-  to use his or her own AI.
+During the audit, you will be competing against other AI players. Be aware, that there is a possibility for the auditor to use their own AI.
 
 _May the best tron win :)_
 

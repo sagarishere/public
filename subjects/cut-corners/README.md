@@ -2,25 +2,45 @@
 
 ### Instructions
 
-Create a function for each rounding math functions:
+Create some functions which behave like JavaScript's `Math` rounding functions:
 
-- round (like `Math.round`)
-- ceil (like `Math.ceil`)
-- floor (like `Math.floor`)
-- trunc (like `Math.trunc`)
+- `round`: which behaves similar to `Math.round()`.
+- `ceil`: which behaves similar to `Math.ceil()`.
+- `floor`: which behaves similar to `Math.floor()`.
+- `trunc`: which behaves similar to `Math.trunc()`.
 
-Some restrictions apply:
+> Some restrictions apply:
+>
+> - You may not use strings conversion to do it
+> - No bitwise operator
+> - No `%` operator
 
-- You may not use strings conversion to do it
-- No bitwise operator
+### Usage
+
+```js
+const nums = [3.7, -3.7, 3.1, -3.1]
+console.log(nums.map(round))
+console.log(nums.map(floor))
+console.log(nums.map(trunc))
+console.log(nums.map(ceil))
+```
+
+Output:
+
+```console
+[ 4, -4, 3, -3 ]
+[ 3, -4, 3, -4 ]
+[ 3, -3, 3, -3 ]
+[ 4, -3, 4, -3 ]
+```
 
 ### Notions
 
-- [devdocs.io/javascript/global_objects/math](https://devdocs.io/javascript/global_objects/math)
+- [Math](https://devdocs.io/javascript/global_objects/math)
 
 ### Code provided
 
-> all code provided will be added to your solution and doesn't need to be submited.
+> The provided code will be added to your solution, and does not need to be submitted.
 
 ```js
 Math.round = Math.ceil = Math.floor = Math.trunc = undefined

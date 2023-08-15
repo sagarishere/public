@@ -1,10 +1,14 @@
 #### Functional
 
-###### Has the requirement for the allowed packages been respected? (Reminder for this project: (only [standard packages](https://golang.org/pkg/)
+###### Has the requirement for the allowed packages been respected? (Reminder for this project: only [standard packages](https://golang.org/pkg/))
 
-###### Is the data from the artists being used?
+###### Is the data from the `artists` being used?
 
-###### Is data from the relations being used?
+###### Is the data from the `locations` being used?
+
+###### Is the data from the `dates` being used?
+
+###### Is data from the `relations` being used?
 
 ##### Try to see the "members" for the artist/band `"Queen"`
 
@@ -58,19 +62,17 @@
 
 ###### Does it present the right members as above?
 
-##### Try to trigger an event using some kind of action (ex: Clicking the mouse over a certain element, pressing a key on the keyboard, resizing or closing the browser window, a form being submitted, an error occurring, etc).
+##### Try to trigger an event/action using some kind of action (ex: Clicking the mouse over a certain element, pressing a key on the keyboard, resizing or closing the browser window, a form being submitted, an error occurring, etc).
 
-###### Does the event responds as expected?
+###### Does the event/action responds as expected?
 
 ###### Did the server behaved as expected?(did not crashed)
 
 ###### Does the server use the right [HTTP method](https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods)?
 
-###### Has the website runned without crashing at anytime?
+###### Did the site run without crashing at any time?
 
 ###### Are all the pages working? (Absence of 404 page?)
-
-###### Does the project handle [HTTP status 400 - Bad Requests](https://kinsta.com/knowledgebase/400-bad-request/#causes)?
 
 ###### Does the project handle [HTTP status 500 - Internal Server Errors](https://www.restapitutorial.com/httpstatuscodes.html)?
 
@@ -84,13 +86,13 @@
 
 ###### +Does the event system run as asynchronous? (usage of go routines and channels)
 
-###### +Is the site hosted or deployed? Can you access the website through a DNS (Domain Name System)?
+###### +Is the site hosted/deployed? Can you access the website through a DNS (Domain Name System)?
 
 #### Basic
 
 ###### +Does the project runs quickly and effectively? (Favoring recursive, no unnecessary data requests, etc)
 
-###### +Does the code obey the [good practices](https://public.01-edu.org/subjects/good-practices/)?
+###### +Does the code obey the [good practices](../../good-practices/README.md)?
 
 ###### +Is there a test file for this code?
 

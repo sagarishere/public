@@ -2,52 +2,31 @@
 
 ### Instructions
 
-A **function** called **odd_to_even** will be given, which returns a `Result`. If an error occurs the function will
-return a tuple with a string, stating the error, and a vector with the elements which causing the error.
+Create a **function** named **fetch_data** which has two arguments:
+- `server`: Which is a `Result` having the server url or an error message inside.
+- `security_level`: Which is an `enum` defining the behavior of the function in case of errors.
 
-The objective is to execute the `odd_to_even` function and handle the error returned by it.
+The `security_level` will work as follow:
+- `Unknown`: The function panics without printing any custom message.
+- `High`: The function panics and prints the error message `ERROR: program stops`.
+- `Medium`: The function returns the string `WARNING: check the server`.
+- `Low`: The function returns the string `Not found: [SERVER_URL]`.
+- `BlockServer`: The function will panic only if the `Result` value is `Ok` and the error message will be the string contained in `Ok`.
 
-Create the following functions which receives a vector :
-
-- `expect` which returns the error adding the string "ERROR "
-- `unwrap_or` which in case of error returns an empty vector
-- `unwrap_err` which returns error if its `Ok` and returns the
-  string containing the error in case of `Err`
-- `unwrap` which unwraps the `Result`
-- `unwrap_or_else` which in case of error returns the vector of elements which causes the error
-
-### Notions
-
-- [Error Handling](https://doc.rust-lang.org/book/ch09-00-error-handling.html)
-- [Unwrap keywords](https://doc.rust-lang.org/std/?search=unwrap)
+To return from **fetch_data** you must use `expect`, `unwrap_or`, `unwrap_err`, `unwrap` and `unwrap_or_else`.
 
 ### Expected Functions
 
 ```rust
-pub fn odd_to_even(data: Vec<u32>) -> Result<Vec<u32>, (String, Vec<u32>)> {
-    let mut a = Vec::new();
-    a.extend(data.iter().filter(|&value| value % 2 == 0));
-    if a.len() != 0 {
-        return Err(("There is a even value in the vector!".to_string(), a));
-    }
-    a.extend(data.iter().map(|&value| {
-        value + 1
-    }));
-    Ok(a)
+pub enum Security {
+	Unknown,
+	High,
+	Medium,
+	Low,
+	BlockServer,
 }
-pub fn expect(v: Vec<u32>) -> Vec<u32> {
 
-}
-pub fn unwrap_or(v: Vec<u32>) -> Vec<u32> {
-
-}
-pub fn unwrap_err(v: Vec<u32>) -> (String, Vec<u32>) {
-
-}
-pub fn unwrap(v: Vec<u32>) -> Vec<u32> {
-
-}
-pub fn unwrap_or_else(v: Vec<u32>) -> Vec<u32> {
+pub fn fetch_data(server: Result<String, String>, security_level: Security) -> String {
 
 }
 ```
@@ -60,37 +39,32 @@ Here is a program to test your function:
 use unwrap_or_expect::*;
 
 fn main() {
-    // // if uncommented, the below line will give an expect "ERROR "
-    // println!("{:?}", expect(vec![1, 3, 2, 5]));
+    println!("{}", fetch_data(Ok("server1.com".to_string()), Security::Medium));
+    println!("{}", fetch_data(Err(String::new()), Security::Medium));
+    println!("{}", fetch_data(Err("server2.com".to_string()), Security::Low));
 
-    println!("{:?}", unwrap_or(vec![1, 3, 2, 5]));
-    println!("{:?}", unwrap_or(vec![1, 3, 5]));
+    // Panics with no custom message
+    // fetch_data(Err("ERROR CRITICAL".to_string()), Security::Unknown);
 
-    println!("{:?}", unwrap_err(vec![1, 3, 2, 5]));
+    // Panics with the message "ERROR: program stops"
+    // fetch_data(Err(String::new()), Security::High);
 
-    // // if uncommented, the below line will give an unwraped error
-    // println!("{:?}", unwrap_err(vec![1, 3, 5]));
-
-    println!("{:?}", unwrap(vec![1, 3, 5]));
-
-    //// if uncommented, the below line will give an error
-    // println!("{:?}", unwrap(vec![1, 3, 2, 5]));
-
-    println!("{:?}", unwrap_or_else(vec![1, 3, 5]));
-    println!("{:?}", unwrap_or_else(vec![3, 2, 6, 5]));
+    // Panics with the message "malicious_server.com"
+    // fetch_data(Ok("malicious_server.com".to_string()), Security::BlockServer);
 }
 ```
 
 And its output:
 
 ```console
-[]
-[2, 4, 6]
-("There is a even value in the vector!", [2])
-[2, 4, 6]
-Ok([2, 4, 6])
-[2, 4, 6]
-Err(("There is a even value in the vector!", [2, 6]))
-[2, 6]
+$ cargo run
+server1.com
+WARNING: check the server
+Not found: server2.com
 $
 ```
+
+### Notions
+
+- [Error Handling](https://doc.rust-lang.org/book/ch09-00-error-handling.html)
+- [Unwrap keywords](https://doc.rust-lang.org/std/?search=unwrap)

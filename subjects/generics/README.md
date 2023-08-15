@@ -2,7 +2,9 @@
 
 ### Instructions
 
-Write a **function** called `identity` which calculates the identity of a value (receives any data type and returns the same value).
+Create a **function** named `identity` which calculates the identity of a value (receives any data type and returns the same value).
+
+
 
 ### Expected Function (signature to be completed)
 
@@ -32,3 +34,7 @@ Hello, world!
 3
 $
 ```
+
+### Notions
+
+- [Generics](https://doc.rust-lang.org/book/ch10-01-syntax.html)

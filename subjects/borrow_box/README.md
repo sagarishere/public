@@ -2,34 +2,33 @@
 
 ### Instructions
 
-In this exercise, a **CRUD** functionality will have to be created. Therefore the following functions will have to be defined :
+Game time.
 
-- `new`, which receives two players and initializes them with a name and a score. This functions should
-  return the structure wrapped in a Box.
+You will implement some **CRUD** functionality for a game session. You will need to implement the `GameSession` structure with the following associated functions:
 
-- `read_winner`, which returns a tuple with the name and the score of the player who is winning.
-  In case none of the players are winning, it should return the same tuple with the string "Same score! tied" and the tied score.
+- `new`: which initializes a game session state with player names and some other information. This function returns the structure wrapped in a `Box`.
 
-  - `update_score`, which receives the name of a player.
-    This function should increment the score of the player. The score should only be increased if it does not pass the `nbr_of_games`.
-    Example: if the nbr_of_games is 3 then the winner of the game should be the one who is the best out of three games. So if one play as 2 wins then
-    he is the winner and the function should not increase the score anymore for either players.
+- `read_winner`: which returns a tuple with the name and score of the player who is currently winning. In the case that no player is winning, it should return the same tuple with the string `"Same score! tied"` and the tied score.
 
-- `delete`, which takes the ownership of the boxed game and returning a string : "Game deleted: id -> 0".
+- `update_score`: which receives the name of a player, and increments their score. This function should **do nothing** if the the game session is already finished or if the name received doesn't match any player.
 
-### Notions
+- `delete`: which takes ownership of the boxed game session and returns a string: `"game deleted: id -> 0"`, where `0` is the id of the `GameSession`.
 
-- [Box Pointers](https://doc.rust-lang.org/book/ch15-01-box.html)
+> If `nb_games` is 5, then it is "best out of 5", and no more than 5 games can be played. If some player has a score of 3, then the game session is also finished. This is because there is an insufficient number of remaining games for the trailing player to catch up.
 
 ### Expected Functions
 
 ```rust
 #[derive(Debug, Clone, Eq, PartialEq)]
-pub struct Game {
-    // expected public fields
+pub struct GameSession {
+    pub id: u32,
+    pub p1: (String, u16),
+    pub p2: (String, u16),
+    pub nb_games: u16
 }
-impl Game {
-    pub fn new(i: u32, pl1: String, pl2: String, n: u16) -> Box<Game> {
+
+impl GameSession {
+    pub fn new(id: u32, p1_name: String, p2_name: String, nb_games: u16) -> Box<GameSession> {
 
     }
     pub fn read_winner(&self) -> (String, u16) {
@@ -52,7 +51,7 @@ Here is a program to test your functions,
 use borrow_box::*;
 
 fn main() {
-    let mut game = Game::new(0, String::from("Joao"), String::from("Susana"), 5);
+    let mut game = GameSession::new(0, String::from("Joao"), String::from("Susana"), 5);
     println!("{:?}", game.read_winner());
     // output : ("Same score! tied", 0)
 
@@ -64,7 +63,7 @@ fn main() {
     // output : ("Same score! tied", 2)
 
     game.update_score(String::from("Joao"));
-    // this one will not count because it already 5 games played, the nbr_of_games
+    // this one will not count because it already 5 games played, the nb_games
     game.update_score(String::from("Susana"));
 
     println!("{:?}", game.read_winner());
@@ -89,3 +88,7 @@ $ cargo run
 "game deleted: id -> 0"
 $
 ```
+
+### Notions
+
+- [Box Pointers](https://doc.rust-lang.org/book/ch15-01-box.html)

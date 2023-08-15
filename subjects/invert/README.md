@@ -2,8 +2,8 @@
 
 ### Instructions
 
-Create a function called `invert` that inverts the object keys and values.
+Create a function named `invert` which takes an object and returns a new one with its keys and values inverted.
 
 ### Notions
 
-- [devdocs.io/javascript/global_objects/object](https://devdocs.io/javascript/global_objects/object)
+- [object](https://devdocs.io/javascript/global_objects/object)

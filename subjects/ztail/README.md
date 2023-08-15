@@ -2,7 +2,7 @@
 
 ### Instructions
 
-Write a program that behaves like a simplified `tail` command but which takes at least one file as argument.
+Write a program that behaves like a simplified `tail` command that takes at least one file as an argument.
 
 The only option to be handled is `-c` and will be used in all the tests as the first argument, with positive values.
 
@@ -18,11 +18,14 @@ If `file1.txt` & `file2.txt` contains :
 
 ```
 abcdefghijklmnopqrstuvwxyz
+
 ```
+
+**Note** that the files above end with a new line.
 
 Normal cases :
 
-```
+```console
 $ go run . -c 4 file1.txt
 xyz
 $ go run . -c 4 file1.txt file2.txt
@@ -36,7 +39,7 @@ $
 
 Error cases :
 
-```
+```console
 $ go run . -c 4 file1.txt nonexisting1.txt file2.txt nonexisting2.txt
 ==> file1.txt <==
 xyz

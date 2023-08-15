@@ -2,31 +2,26 @@
 
 ### Instructions
 
-A standard deck of cards has 52 cards: 4 suits and 13 cards per suit.
+A standard deck of cards has 52 cards: 4 suits with 13 cards per suit.
 Represent the cards from a deck:
 
-- Start by creating the `Suit` enum
-- implement the associated **function** `random` which returns a random `Suit` (`Heart`, `Diamond`, `Spade` or `Club`)
-- Then create the `Rank` enum that can have the value
-  `Ace`, `King`, `Queen`, `Jack`, and `Number` associated to an `u8`
-  value to represent the ranks 2 through 10
-- After create an associated **function** to `Rank` called `Random` that
-  returns a random `Rank`
-- Finally create a structure name `Card` which has the fields `suit`
-  and `rank`
+- Create an `enum` to represent the `Suit`.
+- Implement the associated **function** `random`, which returns a random `Suit` (`Heart`, `Diamond`, `Spade` or `Club`).
+- Create a `Rank` enum. For ace and face cards, it can be one of `Ace`, `King`, `Queen` or `Jack`. For the values from 2 to 10, it can have a `Number` value associated to a `u8`.
+- Create an associated **function** to `Rank` called `Random` that returns a random `Rank`.
+- Create a structure name `Card` which has the fields `suit` and `rank`.
 
 Define:
 
 - The associated **function** `translate` for `Rank` and `Suit`:
-  - For `Suit`, `translate` makes the translation between an integer value (u8) and the suit of a card (1 -> Heart, 2 -> Diamonds, 3 -> Spade, 4 -> Club)
-  - For `Rank`, `translate` makes the translation between an integer value (u8) and the rank ( 1 -> Ace, 2 -> 2, .., 10 -> 10, 11 -> Jack, 12 -> Queen, 13 -> King)
-- The associated **function** `random` for `Rank` and `Suit` which returns a random `Rank` and `Suit` respectively
-- Finally define the **function** `winner_card` which returns `true` if the card passed as an argument is an Ace of spades
+  - For `Suit`, `translate` converts an integer value (`u8`) to a suit (1 -> Heart, 2 -> Diamonds, 3 -> Spade, 4 -> Club).
+  - For `Rank`, `translate` converts an integer value (`u8`) to a rank ( 1 -> Ace, 2 -> 2, .., 10 -> 10, 11 -> Jack, 12 -> Queen, 13 -> King).
+- The associated **function** `random` for `Rank` and `Suit` returns a random `Rank` and `Suit` respectively.
+- Finally define the **function** `winner_card` which returns `true` if the card passed as an argument is an ace of spades.
 
-### Notions
+### Dependencies
 
-[Crate rand](https://docs.rs/rand/0.5.0/rand/)
-[Enums](https://doc.rust-lang.org/book/ch06-00-enums.html)
+rand = "0.3.14"
 
 ### Expected Functions and Structures
 
@@ -57,6 +52,9 @@ pub struct Card {
 	pub suit: Suit,
 	pub rank: Rank,
 }
+
+pub fn winner_card(card: &Card) -> bool {
+}
 ```
 
 ### Usage
@@ -73,7 +71,7 @@ fn main() {
 	println!("Your card is {:?}", your_card);
 
 	// Now if the card is an Ace of Spades print "You are the winner"
-	if card_deck::winner_card(your_card) {
+	if card_deck::winner_card(&your_card) {
 		println!("You are the winner!");
 	}
 }
@@ -86,3 +84,8 @@ $ cargo run
 Your card is Card { suit: Club, rank: Ace }
 $
 ```
+
+### Notions
+
+- [Crate rand](https://docs.rs/rand/0.3.14/rand/)
+- [Enums](https://doc.rust-lang.org/book/ch06-00-enums.html)

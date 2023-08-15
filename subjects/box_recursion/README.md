@@ -2,46 +2,38 @@
 
 ### Instructions
 
-Using the given code create the following **functions**:
+Using the given code, create the following **associated functions**:
 
-- `new` which will initialize the `WorkEnvironment` as `None`
-- `add_worker`, which receives two strings, one being the type of worker and the other the name of the worker.
-- `remove_worker`, which removes the last worker that was placed in the `WorkEnvironment`, this function should
-  returns an `Option` with the name of the worker.
-- `search_worker`, which returns a tuple with the name and type of worker.
+- `new`: which will initialize the `WorkEnvironment` with `grade` set to `None`.
+- `add_worker`: which receives two strings, one being the role and the other the name of the worker. It will add the worker at the start of the list.
+- `remove_worker`: which removes the last worker that was placed in the `WorkEnvironment`, this function returns an `Option` with the name of the worker.
+- `last_worker`: which returns an `Option` with a tuple containing the name and role of the last added worker.
 
-You must also create a type called `Link`. This will be the connection of the structures `WorkEnvironment` and `Worker`.
-Do not forget that this will be a recursion type and it must point to `None` if there is no workers.
-
-### Notions
-
-- [enum](https://doc.rust-lang.org/rust-by-example/custom_types/enum.html)
-- [boc](https://doc.rust-lang.org/book/ch15-01-box.html)
-- [Module std::option](https://doc.rust-lang.org/std/option/)
+You must also create a type named `Link`. This will be the connection between the `WorkEnvironment` and `Worker` structures. This will be a recursion type, and it must point to `None` if there is no `Worker` to point to.
 
 ### Expected Functions and structures
 
 ```rust
+#[derive(Debug)]
 pub struct WorkEnvironment {
     pub grade: Link,
 }
 
 pub type Link =
 
+#[derive(Debug)]
 pub struct Worker {
-    pub worker_type: String,
-    pub worker_name: String,
-    pub next_worker: Link,
+    pub role: String,
+    pub name: String,
+    pub next: Link,
 }
 
 impl WorkEnvironment {
     pub fn new() -> WorkEnvironment {}
-    pub fn add_worker(&mut self, t: String, name: String) {}
+    pub fn add_worker(&mut self, role: String, name: String) {}
     pub fn remove_worker(&mut self) -> Option<String> {}
-    pub fn search_worker(&self) -> Option<(String, String)> {}
+    pub fn last_worker(&self) -> Option<(String, String)> {}
 }
-
-
 ```
 
 ### Usage
@@ -57,13 +49,14 @@ fn main() {
     list.add_worker(String::from("Manager"), String::from("Monica"));
     list.add_worker(String::from("Normal Worker"), String::from("Ana"));
     list.add_worker(String::from("Normal Worker"), String::from("Alice"));
+    println!("{:#?}", list);
+
+    println!("{:?}", list.last_worker());
+
+    list.remove_worker();
+    list.remove_worker();
+    list.remove_worker();
     println!("{:?}", list);
-
-    println!("{:?}", list.search_worker());
-
-    list.remove_worker();
-    list.remove_worker();
-    list.remove_worker();
     list.remove_worker();
     println!("{:?}", list);
 }
@@ -73,8 +66,40 @@ And its output:
 
 ```console
 $ cargo run
-WorkEnvironment { grade: Some(Worker { worker_type: "Normal Worker", worker_name: "Alice", next_worker: Some(Worker { worker_type: "Normal Worker", worker_name: "Ana", next_worker: Some(Worker { worker_type: "Manager", worker_name: "Monica", next_worker: Some(Worker { worker_type: "CEO", worker_name: "Marie", next_worker: None }) }) }) }) }
+WorkEnvironment {
+    grade: Some(
+        Worker {
+            role: "Normal Worker",
+            name: "Alice",
+            next: Some(
+                Worker {
+                    role: "Normal Worker",
+                    name: "Ana",
+                    next: Some(
+                        Worker {
+                            role: "Manager",
+                            name: "Monica",
+                            next: Some(
+                                Worker {
+                                    role: "CEO",
+                                    name: "Marie",
+                                    next: None,
+                                },
+                            ),
+                        },
+                    ),
+                },
+            ),
+        },
+    ),
+}
 Some(("Alice", "Normal Worker"))
+WorkEnvironment { grade: Some(Worker { role: "CEO", name: "Marie", next: None }) }
 WorkEnvironment { grade: None }
 $
 ```
+
+### Notions
+
+- [Box\<T\>](https://doc.rust-lang.org/book/ch15-01-box.html)
+- [Module std::option](https://doc.rust-lang.org/std/option/)

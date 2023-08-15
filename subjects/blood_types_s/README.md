@@ -8,18 +8,18 @@ Use the following table to define the methods asked:
 | ----------- | ---------------- | ------------------ |
 | A+          | A+, AB+          | A+, A-, O+, O-     |
 | O+          | O+, A+, B+, AB+  | O+, O-             |
-| B+          | O+, O-           | B+, B-, O+, O-     |
+| B+          | B+, AB+          | B+, B-, O+, O-     |
 | AB+         | AB+              | Everyone           |
 | A-          | A+, A-, AB+, AB- | A-, O-             |
 | O-          | Everyone         | O-                 |
 | B-          | B+, B-, AB+, AB- | B-, O-             |
 | AB-         | AB+, AB-         | AB-, A-, B-, O-    |
 
-Write three methods for BloodType:
+Implement three methods for `BloodType`:
 
-- `can_receive_from`: which returns true if `self` can receive blood from `other` blood type
-- `donors`: which returns all the blood types that can give blood to `self`
-- `recipients`: which returns all the blood types that can receive blood from `self`
+- `can_receive_from`: returns `true` if `self` **can** receive blood from `other` blood type.
+- `donors`: which returns all the blood types that can give blood to `self`.
+- `recipients`: which returns all the blood types that can receive blood from `self`.
 
 ### Expected Functions and Structures
 
@@ -33,12 +33,12 @@ pub enum Antigen {
 }
 
 #[derive(Debug, PartialEq, Eq, PartialOrd, Ord, Clone)]
-enum RhFactor {
+pub enum RhFactor {
 	Positive,
 	Negative,
 }
 
-#[derive(PartialEq, Eq, PartialOrd, Ord, Clone)]
+#[derive(Debug, PartialEq, Eq, PartialOrd, Ord, Clone)]
 pub struct BloodType {
 	pub antigen: Antigen,
 	pub rh_factor: RhFactor,
@@ -52,6 +52,7 @@ impl BloodType {
 	}
 
 	pub fn recipients(&self) -> Vec<Self> {
+	}
 }
 ```
 

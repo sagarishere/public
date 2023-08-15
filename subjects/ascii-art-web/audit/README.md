@@ -1,6 +1,6 @@
 #### Functional
 
-###### Has the requirement for the allowed packages been respected? (Reminder for this project: (only [standard packages](https://golang.org/pkg/)
+###### Has the requirement for the allowed packages been respected? (Reminder for this project: (only [standard packages](https://golang.org/pkg/))
 
 ###### Does the project contain HTML files?
 
@@ -31,7 +31,7 @@ In the second line `<Hello> (World)!`
 
 ###### Does it display the right result as above?
 
-##### Try to input `"123??"` using the template/banner standard.
+##### Try to input `123??` using the template/banner standard.
 
 ```
                      ___    ___
@@ -46,7 +46,7 @@ In the second line `<Hello> (World)!`
 
 ###### Does it display the right result as above?
 
-##### Try to input `"$% "="` using the template/banner shadow.
+##### Try to input `$% "=` using the template/banner shadow.
 
 ```
                         _|  _|
@@ -61,7 +61,7 @@ _|_|_| _|    _|_|
 
 ###### Does it display the right result as above?
 
-##### Try to input `"123 T/fs#R"` using the template/banner thinkertoy.
+##### Try to input `123 T/fs#R` using the template/banner thinkertoy.
 
 ```
 
@@ -90,9 +90,9 @@ o-o-o o--o o-o          o   o      o   o-o  | |  o   o
 
 ###### Is the communication between [server and client](https://www.geeksforgeeks.org/client-server-model/) well established?
 
-###### Does the server use the right [HTTP method](https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods)?
+###### Does the server uses the right [HTTP method](https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods)?
 
-###### Has the website runned without crashing at anytime?
+###### Did the site work without crashing at any time?
 
 ###### Is the server written in Go?
 
@@ -106,7 +106,7 @@ o-o-o o--o o-o          o   o      o   o-o  | |  o   o
 
 ###### +Does the server run quickly and effectively? (Favoring recursive, no unnecessary data requests, etc)
 
-###### +Does the code obey the [good practices](https://public.01-edu.org/subjects/good-practices/)?
+###### +Does the code obey the [good practices](../../good-practices/README.md)?
 
 ###### +Is there a test file for this code?
 

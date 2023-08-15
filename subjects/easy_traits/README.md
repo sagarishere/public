@@ -2,25 +2,33 @@
 
 ### Instructions
 
-Your task is to implement the trait `AppendStr` for the type String, and `AppendVec` for a vector of strings.
+Your task is to implement the trait `AppendStr` for the type `StringValue`.
 
-The trait `AppendStr` has only one function, which is appending `"world"` to any object implementing this trait.
-And `AppendVec` will append `"three"` to a vector of strings.
+The trait `AppendStr` has the following functions:
+
+- `append_str`: that appends the string to the `value`.
+- `append_number`: that appends the number to the `value`.
+- `remove_punctuation_marks`: that removes punctuation from the `value` (`.`, `,`, `?` and `!`).
+
 
 ### Expected Function
 
 ```rust
-trait AppendStr {
-    fn append_str(self) -> Self;
+#[derive(Clone)]
+pub struct StringValue {
+    pub value: String,
 }
 
-trait AppendVec {
-    fn append_vec(&mut self) -> Self;
+pub trait AppendStr {
+    fn append_str(&mut self, str_to_append: String) -> Self;
+
+    fn append_number(&mut self, nb_to_append: f64) -> Self;
+
+    fn remove_punctuation_marks(&mut self) -> Self;
 }
 
-impl AppendStr for String {}
-
-impl AppendVec for Vec<String> {}
+impl AppendStr for StringValue {
+}
 ```
 
 ### Usage
@@ -28,14 +36,20 @@ impl AppendVec for Vec<String> {}
 Here is a program to test your function.
 
 ```rust
-use easy_traits::easy_traits;
+use easy_traits::*;
 
 fn main() {
-    let s = String::from("hello ").append_str();
-    println!("{}", s);
+    let mut str_aux = StringValue {
+        value: String::from("hello"),
+    };
 
-    let l = vec![String::from("one"), String::from("two")].append_vec();
-    println!("{:?}", l);
+    println!("Before append: {}", str_aux.value);
+
+    str_aux.append_str(String::from(" there!"));
+    println!("After append: {}", str_aux.value);
+
+    str_aux.remove_punctuation_marks();
+    println!("After removing punctuation: {}", str_aux.value);
 }
 ```
 
@@ -43,7 +57,8 @@ And its output
 
 ```console
 $ cargo run
-hello world
-["one", "two", "three"]
+Before append: hello
+After append: hello there!
+After removing punctuation: hello there
 $
 ```

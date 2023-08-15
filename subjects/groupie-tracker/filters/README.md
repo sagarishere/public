@@ -2,7 +2,7 @@
 
 ### Objectives
 
-You must follow the same [principles](https://public.01-edu.org/subjects/groupie-tracker/) as the first subject.
+You must follow the same [principles](../README.md) as the first subject.
 
 - Groupie Tracker Filters consists on letting the user filter the artists/bands that will be shown.
 
@@ -13,16 +13,15 @@ You must follow the same [principles](https://public.01-edu.org/subjects/groupie
   - filter by number of members
   - filter by locations of concerts
 
-- You must use at least these two types of filters:
-  - a range filter
-  - a check box filter
+- Your filters must be of at least these two types:
+  - a range filter (filters the results between two values)
+  - a check box filter (filters the results by one or multiple selection)
 
-This project will help you learn about:
+### Example
 
-- Manipulation, display and storage of data
-- Event creation and display
-- JSON files and format
-- Go routines
+Here is an example of both types of filters:
+
+![image](filters_example.png).
 
 ### Hints
 
@@ -32,9 +31,16 @@ This project will help you learn about:
 
 - The backend must be written in **Go**.
 - You must handle website errors.
-- The code must respect the [good practices](https://public.01-edu.org/subjects/good-practices/)
-- It is recommended that the code should present a **test file**.
+- The code must respect the [good practices](../../good-practices/README.md)
+- It is recommended to have **test files** for [unit testing](https://go.dev/doc/tutorial/add-a-test).
 
 ### Allowed packages
 
-- Only the [standard go](https://golang.org/pkg/) packages are allowed
+- Only the [standard Go](https://golang.org/pkg/) packages are allowed.
+
+This project will help you learn about:
+
+- Manipulation, display and storage of data
+- Event creation and display
+- JSON files and format
+- Go routines
